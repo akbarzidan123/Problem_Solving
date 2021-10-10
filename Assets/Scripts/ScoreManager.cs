@@ -27,7 +27,7 @@ public class ScoreManager : MonoBehaviour
             scoerPoint+=1;
             scoreText.text = "Score: "+scoerPoint.ToString();
             Destroy(col.gameObject);
-            // StartCoroutine(spawn.Spawn());
+            StartCoroutine(spawn.Spawn());
         }
     }
 }
