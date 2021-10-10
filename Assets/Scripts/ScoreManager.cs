@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class ScoreManager : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -27,7 +28,10 @@ public class ScoreManager : MonoBehaviour
             scoerPoint+=1;
             scoreText.text = "Score: "+scoerPoint.ToString();
             Destroy(col.gameObject);
-            StartCoroutine(spawn.Spawn());
+            if(SceneManager.GetActiveScene().buildIndex > 7)
+            {
+                StartCoroutine(spawn.Spawn());
+            }
         }
     }
 }
