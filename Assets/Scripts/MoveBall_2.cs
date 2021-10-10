@@ -7,6 +7,7 @@ public class MoveBall_2 : MonoBehaviour
     public float forceX;// dorong bola terhadap sumbu X
     public float forceY;// dorong bola terhadap sumbu Y
     private Rigidbody2D rb;//inisialisasi componen rigidbody
+    public float moveSpeed = 10f;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +54,11 @@ public class MoveBall_2 : MonoBehaviour
         }
         //End soal nomer 4
         rb.velocity = velocity;
+
+        //Soal nomor 5
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = Vector2.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
+        //End soal nomor 5
     }
     void PushBall()
     {
