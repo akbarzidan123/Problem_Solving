@@ -11,13 +11,48 @@ public class MoveBall_2 : MonoBehaviour
     void Start()
     {
          rb = GetComponent<Rigidbody2D>();
-         PushBall();
+        //  PushBall();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Soal nomer 4
+        //GetKeyDown = Sekali pencet tombol, Getkey = Selama tombol dipencet(hold/press)
+        Vector2 velocity = rb.velocity;
+        //Input atas maka bola ke atas
         
+        if(Input.GetKey(KeyCode.UpArrow))
+        {
+            velocity.y = forceY;
+        }
+        // input bawah maka bola akan kebawah
+        else if(Input.GetKey(KeyCode.DownArrow))
+        {
+            velocity.y = -forceY;
+        }
+        // Kalo ga mencet apa apa bola balik ke speed 0
+        else
+        {
+            velocity.y = 0;   
+        }
+        // input kanan maka bola akan kekanan
+        if(Input.GetKey(KeyCode.RightArrow))
+        {
+            velocity.x = forceX;
+        }
+        //input kiri maka bola akan kekiri        
+        else if(Input.GetKey(KeyCode.LeftArrow))
+        {
+            velocity.x = -forceX;
+        }
+        // Kalo ga mencet apa apa bola balik ke speed 0
+        else
+        {
+            velocity.x = 0;
+        }
+        //End soal nomer 4
+        rb.velocity = velocity;
     }
     void PushBall()
     {
